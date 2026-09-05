@@ -1,0 +1,61 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import CategoryDropdown from './CategoryDropdown'
+import SearchBox from './SearchBox'
+import { categoryList } from '../data'
+
+function Header() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  return (
+    <header className="site-header">
+      <div className="utility-bar">
+        <span>&#9633; Download BeliBeli App</span>
+        <nav>
+          <a href="#mitra">Mitra BeliBeli</a>
+          <a href="#about">About BeliBeli</a>
+          <a href="#care">BeliBeli Care</a>
+          <a href="#promo">Promo</a>
+          <button type="button" className="btn-signup">
+            Sign Up
+          </button>
+          <button type="button" className="btn-login">
+            Login
+          </button>
+        </nav>
+      </div>
+      <div className={`main-nav${menuOpen ? ' menu-open' : ''}`}>
+        <Link className="brand" to="/">
+          <span className="brand-letter">B</span> BeliBeli.com
+        </Link>
+        <CategoryDropdown />
+        <SearchBox />
+        <div className="nav-actions">
+          <button type="button" className="nav-icon" aria-label="Store">
+            &#128722;
+          </button>
+          <button type="button" className="nav-icon" aria-label="Notifications">
+            &#128276;
+          </button>
+          <button className="mobile-menu" type="button" onClick={() => setMenuOpen((open) => !open)} aria-label="Open navigation menu" aria-expanded={menuOpen}>
+            {menuOpen ? '\u2715' : '\u2630'}
+          </button>
+        </div>
+        {menuOpen && (
+          <nav className="mobile-menu-panel">
+            <strong>Shop by category</strong>
+            <div className="mobile-category-links">
+              {categoryList.map((category) => (
+                <Link key={category.key} to={`/product/${category.product.id}`} onClick={() => setMenuOpen(false)}>
+                  {category.name}
+                </Link>
+              ))}
+            </div>
+          </nav>
+        )}
+      </div>
+    </header>
+  )
+}
+
+export default Header
