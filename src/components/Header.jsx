@@ -28,8 +28,10 @@ function Header() {
         <Link className="brand" to="/">
           <span className="brand-letter">B</span> BeliBeli.com
         </Link>
-        <CategoryDropdown />
-        <SearchBox />
+          <div className="search-control">
+            <CategoryDropdown />
+            <SearchBox />
+          </div>
         <div className="nav-actions">
           <button type="button" className="nav-icon" aria-label="Store">
             &#128722;

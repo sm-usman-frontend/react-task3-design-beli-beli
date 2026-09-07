@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import ImagePlaceholder from './ImagePlaceholder'
 
-function ProductCard({ product }) {
+function ProductCard({ product, variant = '' }) {
   const [liked, setLiked] = useState(product.liked || false)
 
   const toggleLike = (e) => {
@@ -12,7 +12,7 @@ function ProductCard({ product }) {
   }
 
   return (
-    <Link to={`/product/${product.id}`} className="product-card">
+    <Link to={`/product/${product.id}`} className={`product-card${variant ? ` ${variant}-product-card` : ''}`}>
       <div className="product-image">
         <ImagePlaceholder label={product.image} />
         <button
@@ -32,6 +32,12 @@ function ProductCard({ product }) {
         <strong>{product.price}</strong>
         {product.oldPrice && <del>{product.oldPrice}</del>}
       </div>
+      {variant === 'flash' && (
+        <div className="flash-card-progress">
+          <span className="progress-track"><i /></span>
+          <span>{product.saleCount || '05/10'} Sale</span>
+        </div>
+      )}
     </Link>
   )
 }

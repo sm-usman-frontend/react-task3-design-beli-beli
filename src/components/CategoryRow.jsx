@@ -10,7 +10,13 @@ function CategoryRow({ categories }) {
           to={`/product/${category.product.id}`}
           className="category-item"
         >
-          <ImagePlaceholder label={category.name.toUpperCase()} />
+          {category.key === 'all' ? (
+            <span className="all-category-icon" aria-hidden="true">
+              <i /><i /><i /><i />
+            </span>
+          ) : (
+            <ImagePlaceholder label={category.name.toUpperCase()} />
+          )}
           <span>{category.name}</span>
         </Link>
       ))}

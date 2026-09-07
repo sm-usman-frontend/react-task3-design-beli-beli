@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import ImagePlaceholder from './ImagePlaceholder'
 import ProductGallery from './ProductGallery'
 import Header from './Header'
@@ -8,7 +8,6 @@ import { getProductById } from '../data'
 
 function ProductDetailsPage() {
   const { productId } = useParams()
-  const navigate = useNavigate()
   const [selectedSize, setSelectedSize] = useState('M')
 
   const product = getProductById(productId)
@@ -41,14 +40,31 @@ function ProductDetailsPage() {
     <>
       <Header />
       <main className="details-page">
-        <button className="back-link" onClick={() => navigate(-1)}>
-          &#8247; Back to shopping
-        </button>
         <div className="breadcrumb">
           Home / Product / <b>{product.fullName || product.name}</b>
         </div>
         <section className="product-detail">
-          <ProductGallery product={product} />
+          <div className="product-left-column">
+            <ProductGallery product={product} />
+            <div className="seller-card">
+              <div className="seller-identity">
+                <span className="seller-mark">N</span>
+                <div>
+                  <strong>Barudak Disaster Mall <span className="seller-verified">&#10003;</span></strong>
+                  <small>Online</small>
+                </div>
+              </div>
+              <div className="seller-actions">
+                <button type="button">Follow</button>
+                <button type="button">Visit Store</button>
+              </div>
+              <div className="seller-stats">
+                <span>&#9733; Rating Store : <b>96%</b></span>
+                <span>&#9679; Location Store : <b>Tulungagung</b></span>
+                <span>&#9632; Chat Reply : <b>98%</b></span>
+              </div>
+            </div>
+          </div>
           <div className="purchase-panel">
             <h1>{product.fullName || product.name}</h1>
             <div className="detail-rating">
@@ -56,11 +72,17 @@ function ProductDetailsPage() {
               <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span> {product.rating} &nbsp;&bull;&nbsp; 185 Reviews
             </div>
             <div className="detail-price">
-              {product.price} {product.oldPrice && <del>{product.oldPrice}</del>} {product.oldPrice && <small>25% off</small>}
+              <strong>{product.price}</strong>
+              {product.oldPrice && (
+                <div className="price-discount">
+                  <del>{product.oldPrice}</del>
+                  <small>25% off</small>
+                </div>
+              )}
             </div>
             <div className="color-options">
-              {colors.map((color) => (
-                <ImagePlaceholder key={color} label={color} />
+              {colors.slice(0, 2).map((color) => (
+                <ImagePlaceholder key={color} label={`${color} ${product.image || product.name}`} />
               ))}
             </div>
             <div className="size-line">

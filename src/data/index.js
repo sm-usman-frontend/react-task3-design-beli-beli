@@ -10,14 +10,14 @@ export const products = [
 ]
 
 export const flashProducts = [
-  { ...products[2], id: 201, name: 'Fleecedite Performance Winter Jacket', price: 'Rp265.000', oldPrice: 'Rp350.000', image: 'IMAGE: WINTER JACKET' },
-  { ...products[6], id: 202, name: 'Gentlemen\u2019s Summer Gray Hat', price: 'Rp99.000', image: 'IMAGE: SUMMER HAT' },
-  { ...products[1], id: 203, name: 'Olioborn Crossbody Shoulder Bag', price: 'Rp250.000', oldPrice: 'Rp310.000', image: 'IMAGE: CROSSBODY BAG' },
-  { ...products[7], id: 204, name: 'Omay Chic - Gray Heel Toe Pointed Stilettos', price: 'Rp270.000', oldPrice: 'Rp320.000', image: 'IMAGE: GRAY HEELS' },
-  { ...products[0], id: 205, name: 'UrbanEdge Slim Fit Denim', price: 'Rp289.000', oldPrice: 'Rp340.000', image: 'IMAGE: DENIM JACKET', liked: true },
-  { ...products[4], id: 206, name: 'ClassicComfy Velvet Blazer', price: 'Rp350.000', image: 'IMAGE: VELVET BLAZER' },
-  { ...products[5], id: 207, name: 'Urban Flow Active Shorts', price: 'Rp119.000', oldPrice: 'Rp159.000', image: 'IMAGE: ACTIVE SHORTS' },
-  { ...products[6], id: 208, name: 'GioBerry Mini Sling Bag', price: 'Rp299.000', oldPrice: 'Rp380.000', image: 'IMAGE: SLING BAG' },
+  { ...products[2], id: 201, name: 'Fleecedite Performance Winter Jacket', price: 'Rp265.000', oldPrice: 'Rp350.000', image: 'IMAGE: WINTER JACKET', saleCount: '09/10' },
+  { ...products[6], id: 202, name: 'Gentlemen\u2019s Summer Gray Hat', price: 'Rp99.000', image: 'IMAGE: SUMMER HAT', saleCount: '09/10' },
+  { ...products[1], id: 203, name: 'Olioborn Crossbody Shoulder Bag', price: 'Rp250.000', oldPrice: 'Rp310.000', image: 'IMAGE: CROSSBODY BAG', saleCount: '05/10' },
+  { ...products[7], id: 204, name: 'Omay Chic - Gray Heel Toe Pointed Stilettos', price: 'Rp270.000', oldPrice: 'Rp320.000', image: 'IMAGE: GRAY HEELS', saleCount: '05/10' },
+  { ...products[0], id: 205, name: 'UrbanEdge Slim Fit Denim', price: 'Rp289.000', oldPrice: 'Rp340.000', image: 'IMAGE: DENIM JACKET', liked: true, saleCount: '07/10' },
+  { ...products[4], id: 206, name: 'ClassicComfy Velvet Blazer', price: 'Rp350.000', image: 'IMAGE: VELVET BLAZER', saleCount: '04/10' },
+  { ...products[5], id: 207, name: 'Urban Flow Active Shorts', price: 'Rp119.000', oldPrice: 'Rp159.000', image: 'IMAGE: ACTIVE SHORTS', saleCount: '06/10' },
+  { ...products[6], id: 208, name: 'GioBerry Mini Sling Bag', price: 'Rp299.000', oldPrice: 'Rp380.000', image: 'IMAGE: SLING BAG', saleCount: '08/10' },
 ]
 
 export const categoryProducts = {

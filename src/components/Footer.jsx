@@ -10,7 +10,7 @@ function Footer() {
           backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${heroBg})`,
         }}
       >
-        <span>&#8220;Let\u2019s Shop Beyond Boundaries&#8221;</span>
+        <span>&#8220;Let's Shop Beyond Boundaries&#8221;</span>
       </div>
       <div className="footer-content">
         <div>

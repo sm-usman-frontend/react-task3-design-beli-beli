@@ -16,8 +16,8 @@ function HomePage() {
         <HeroBanner />
         <CategoryRow categories={categoryList} />
         <FlashSaleSection products={flashProducts} />
-        <section className="surface-section">
-          <SectionHeading title="Todays For You!" action={['Best Seller', 'Keep Style', 'Special Discount', 'Official Store']} />
+        <section className="surface-section today-section">
+          <SectionHeading title="Todays For You!" action={['Best Seller', 'Keep Style', 'Special Discount', 'Official Store', 'Coveted Product']} />
           <div className="product-grid">
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />

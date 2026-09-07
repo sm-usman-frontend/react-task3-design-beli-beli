@@ -4,6 +4,3 @@ body { margin: 0; min-width: 320px; }
 button, input { font: inherit; }
 button { cursor: pointer; }
 a { color: inherit; text-decoration: none; }
-@media (min-width: 1200px) {
-	#root { zoom: 1.08; }
-}

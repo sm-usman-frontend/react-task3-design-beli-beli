@@ -25,7 +25,7 @@ function CategoryDropdown() {
         aria-haspopup="menu"
         aria-expanded={open}
       >
-        All Category&#9660;
+        All Category <span className="category-arrow">&#9660;</span>
       </button>
       {open && (
         <div className="category-menu" role="menu">

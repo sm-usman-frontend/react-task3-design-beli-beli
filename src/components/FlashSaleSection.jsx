@@ -48,17 +48,17 @@ function FlashSaleSection({ products }) {
         </h2>
         <div className="flash-nav">
           <button type="button" className="nav-btn" onClick={() => scroll('prev')} aria-label="Previous products" disabled={!canScroll.prev}>
-            &lt;
+            &#8592;
           </button>
           <button type="button" className="nav-btn" onClick={() => scroll('next')} aria-label="Next products" disabled={!canScroll.next}>
-            &gt;
+            &#8594;
           </button>
         </div>
       </div>
       <div className="flash-scroll" ref={scrollRef}>
         <div className="flash-track">
           {products.map((product) => (
-            <ProductCard key={product.id + product.name} product={product} />
+            <ProductCard key={product.id + product.name} product={product} variant="flash" />
           ))}
         </div>
       </div>
