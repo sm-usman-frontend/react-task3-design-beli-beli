@@ -1,13 +1,16 @@
 import { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import ImagePlaceholder from './ImagePlaceholder'
 import ProductGallery from './ProductGallery'
 import Header from './Header'
 import Footer from './Footer'
+import ReviewSection from './ReviewSection'
+import BestSellerSection from './BestSellerSection'
 import { getProductById } from '../data'
 
 function ProductDetailsPage() {
   const { productId } = useParams()
+  const navigate = useNavigate()
   const [selectedSize, setSelectedSize] = useState('M')
 
   const product = getProductById(productId)
@@ -29,6 +32,9 @@ function ProductDetailsPage() {
   const colors = product.colors || ['BLACK', 'WHITE']
   const sizes = product.sizes || ['S', 'M', 'L', 'XL', '2XL', '3XL']
   const description = product.description || 'This product is crafted with premium materials for everyday comfort and style. Built-in moisture wicking and sun protection keep you feeling dry while blocking out harmful UV rays.'
+  const scrollToSection = (sectionId) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
   const currentSize = sizes.includes(selectedSize) ? selectedSize : (sizes.find((s) => s === 'M') || sizes[0])
   const stylingIdeas = [
     { name: 'George Men\'s and Big Men\'s 100% Cotton', price: 'Rp220.000', image: 'IMAGE: LEATHER BELT', src: '' },
@@ -101,7 +107,7 @@ function ProductDetailsPage() {
               ))}
             </div>
             <button className="primary-button">Buy this Item</button>
-            <button className="outline-button">Add to Bag</button>
+            <button className="outline-button" onClick={() => navigate('/bag', { state: { product } })}>Add to Bag</button>
             <div className="quick-actions">
               <span>&#9677; Chat</span>
               <span>&#9825; Wishlist</span>
@@ -112,9 +118,9 @@ function ProductDetailsPage() {
         <section className="description">
           <div className="tabs">
             <button className="active">Description</button>
-            <button>Styling Ideas</button>
-            <button>Review</button>
-            <button>Best Seller</button>
+            <button type="button" onClick={() => scrollToSection('styling-ideas')}>Styling Ideas</button>
+            <button type="button" onClick={() => scrollToSection('customer-reviews')}>Review</button>
+            <button type="button" onClick={() => scrollToSection('best-seller')}>Best Seller</button>
             <span>&#9735; Report Product</span>
           </div>
           <h2>Product Details</h2>
@@ -126,7 +132,7 @@ function ProductDetailsPage() {
             <div><dt>Department</dt><dd>Mens</dd></div>
           </dl>
         </section>
-        <section className="styling-ideas">
+        <section className="styling-ideas" id="styling-ideas">
           <div className="styling-ideas-header">
             <h2>Styling Ideas</h2>
             <button type="button">See more</button>
@@ -149,12 +155,14 @@ function ProductDetailsPage() {
               <span>Total</span>
               <strong>{product.price}</strong>
               <small>Save Rp067.500</small>
-              <button type="button" className="primary-button">Add to Bag</button>
+              <button type="button" className="primary-button" onClick={() => navigate('/bag', { state: { product } })}>Add to Bag</button>
             </aside>
           </div>
         </section>
+        <div id="customer-reviews" className="section-anchor"><ReviewSection /></div>
+        <div id="best-seller" className="section-anchor"><BestSellerSection /></div>
       </main>
-      <Footer />
+      <Footer showQuote={false} />
     </>
   )
 }

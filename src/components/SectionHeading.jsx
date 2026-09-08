@@ -6,6 +6,8 @@ function SectionHeading({ title, action = 'See more' }) {
         <div className="heading-categories">
           {action.map((category) => <button type="button" key={category}>{category}</button>)}
         </div>
+      ) : typeof action === 'object' ? (
+        action
       ) : (
         <button type="button">{action} <span>&#8250;</span></button>
       )}

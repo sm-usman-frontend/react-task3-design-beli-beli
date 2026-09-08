@@ -1,17 +1,10 @@
 import { Link } from 'react-router-dom'
 import heroBg from '../assets/hero_bg.webp'
 
-function Footer() {
+function Footer({ showQuote = true }) {
   return (
     <footer>
-      <div
-        className="quote"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${heroBg})`,
-        }}
-      >
-        <span>&#8220;Let's Shop Beyond Boundaries&#8221;</span>
-      </div>
+      {showQuote && <div className="quote" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${heroBg})` }}><span>&#8220;Let's Shop Beyond Boundaries&#8221;</span></div>}
       <div className="footer-content">
         <div>
           <Link className="brand footer-brand" to="/">
