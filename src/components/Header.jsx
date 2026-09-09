@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { BellOutlined, CloseOutlined, MenuOutlined, ShoppingOutlined } from '@ant-design/icons'
 import CategoryDropdown from './CategoryDropdown'
 import SearchBox from './SearchBox'
 import { categoryList } from '../data'
@@ -33,14 +34,10 @@ function Header() {
             <SearchBox />
           </div>
         <div className="nav-actions">
-          <button type="button" className="nav-icon" aria-label="Store">
-            &#128722;
-          </button>
-          <button type="button" className="nav-icon" aria-label="Notifications">
-            &#128276;
-          </button>
+          <Link className="nav-icon" to="/bag" aria-label="Shopping bag"><ShoppingOutlined /></Link>
+          <button type="button" className="nav-icon" aria-label="Notifications"><BellOutlined /></button>
           <button className="mobile-menu" type="button" onClick={() => setMenuOpen((open) => !open)} aria-label="Open navigation menu" aria-expanded={menuOpen}>
-            {menuOpen ? '\u2715' : '\u2630'}
+            {menuOpen ? <CloseOutlined /> : <MenuOutlined />}
           </button>
         </div>
         {menuOpen && (

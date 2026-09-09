@@ -4,6 +4,7 @@ import CountdownTimer from './CountdownTimer'
 
 function FlashSaleSection({ products }) {
   const scrollRef = useRef(null)
+  const [expanded, setExpanded] = useState(false)
   const [canScroll, setCanScroll] = useState({ prev: false, next: true })
 
   const updateScrollState = () => {
@@ -56,12 +57,15 @@ function FlashSaleSection({ products }) {
         </div>
       </div>
       <div className="flash-scroll" ref={scrollRef}>
-        <div className="flash-track">
+        <div className={`flash-track${expanded ? ' expanded' : ''}`}>
           {products.map((product) => (
             <ProductCard key={product.id + product.name} product={product} variant="flash" />
           ))}
         </div>
       </div>
+      <button className="flash-view-more" type="button" onClick={() => setExpanded((open) => !open)}>
+        {expanded ? 'Show Less' : 'View More'}
+      </button>
     </section>
   )
 }

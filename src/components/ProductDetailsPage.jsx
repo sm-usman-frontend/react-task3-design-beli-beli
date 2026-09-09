@@ -6,6 +6,7 @@ import Header from './Header'
 import Footer from './Footer'
 import ReviewSection from './ReviewSection'
 import BestSellerSection from './BestSellerSection'
+import { FileTextOutlined, PlusOutlined } from '@ant-design/icons'
 import { getProductById } from '../data'
 
 function ProductDetailsPage() {
@@ -37,9 +38,9 @@ function ProductDetailsPage() {
   }
   const currentSize = sizes.includes(selectedSize) ? selectedSize : (sizes.find((s) => s === 'M') || sizes[0])
   const stylingIdeas = [
-    { name: 'George Men\'s and Big Men\'s 100% Cotton', price: 'Rp220.000', image: 'IMAGE: LEATHER BELT', src: '' },
-    { name: 'Men\'s Easy Reader | Black/Silver Watch', price: 'Rp450.000', image: 'IMAGE: BLACK WATCH', src: '' },
-    { name: 'Sport Running Shoes for Men Mesh Breathable', price: 'Rp330.000', image: 'IMAGE: RUNNING SHOES', src: '' },
+    { name: 'George Men\'s and Big Men\'s 100% Cotton', price: 'Rp220.000', oldPrice: 'Rp350.000', image: 'IMAGE: JEANS' },
+    { name: 'Men\'s Easy Reader | Black/Silver Watch', price: 'Rp450.000', oldPrice: 'Rp745.000', image: 'IMAGE: BLACK WATCH' },
+    { name: 'Sport Running Shoes for Men Mesh Breathable', price: 'Rp330.000', oldPrice: 'Rp450.000', image: 'IMAGE: RUNNING SHOES' },
   ]
 
   return (
@@ -121,7 +122,7 @@ function ProductDetailsPage() {
             <button type="button" onClick={() => scrollToSection('styling-ideas')}>Styling Ideas</button>
             <button type="button" onClick={() => scrollToSection('customer-reviews')}>Review</button>
             <button type="button" onClick={() => scrollToSection('best-seller')}>Best Seller</button>
-            <span>&#9735; Report Product</span>
+            <span><FileTextOutlined /> Report Product</span>
           </div>
           <h2>Product Details</h2>
           <p>{description}</p>
@@ -141,13 +142,16 @@ function ProductDetailsPage() {
             <div className="styling-product-list">
               <div className="styling-main-product">
                 <ImagePlaceholder label={product.image} src={product.imageSrc} />
-                <span className="styling-plus">+</span>
+                <span className="styling-plus" aria-hidden="true"><PlusOutlined /></span>
               </div>
               {stylingIdeas.map((idea) => (
                 <article className="styling-product" key={idea.name}>
                   <ImagePlaceholder label={idea.image} src={idea.src} />
                   <p>{idea.name}</p>
-                  <strong>{idea.price}</strong>
+                  <div className="styling-product-price">
+                    <strong>{idea.price}</strong>
+                    <del>{idea.oldPrice}</del>
+                  </div>
                 </article>
               ))}
             </div>

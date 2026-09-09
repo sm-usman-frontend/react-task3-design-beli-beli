@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { SearchOutlined } from '@ant-design/icons'
 import { searchProducts } from '../data'
 
 function SearchBox({ placeholder = 'Search product or brand here...' }) {
@@ -41,7 +42,7 @@ function SearchBox({ placeholder = 'Search product or brand here...' }) {
   return (
     <div className="search-container" ref={containerRef}>
       <label className="search-box">
-        &#9651; <input
+        <SearchOutlined className="search-icon" /> <input
           type="text"
           placeholder={placeholder}
           value={query}

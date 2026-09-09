@@ -18,6 +18,8 @@ export const flashProducts = [
   { ...products[4], id: 206, name: 'ClassicComfy Velvet Blazer', price: 'Rp350.000', image: 'IMAGE: VELVET BLAZER', saleCount: '04/10' },
   { ...products[5], id: 207, name: 'Urban Flow Active Shorts', price: 'Rp119.000', oldPrice: 'Rp159.000', image: 'IMAGE: ACTIVE SHORTS', saleCount: '06/10' },
   { ...products[6], id: 208, name: 'GioBerry Mini Sling Bag', price: 'Rp299.000', oldPrice: 'Rp380.000', image: 'IMAGE: SLING BAG', saleCount: '08/10' },
+  { ...products[3], id: 209, name: 'Essential Cotton Polo Shirt', price: 'Rp145.000', oldPrice: 'Rp190.000', image: 'IMAGE: POLO SHIRT', saleCount: '06/10' },
+  { ...products[4], id: 210, name: 'ClassicComfy Casual Loafers', price: 'Rp225.000', oldPrice: 'Rp290.000', image: 'IMAGE: CASUAL LOAFERS', saleCount: '04/10' },
 ]
 
 export const categoryProducts = {
@@ -149,6 +151,38 @@ export const categoryProducts = {
     selectedSize: 'ONE SIZE',
     description: 'This classic baseball cap is made from durable cotton twill with a structured front panel and adjustable snapback closure. The embroidered logo adds a smart touch to any casual look.',
   },
+  sunglasses: {
+    id: 110,
+    name: 'UrbanShade Classic Sunglasses',
+    price: 'Rp149.000',
+    oldPrice: 'Rp199.000',
+    rating: '4.8',
+    sold: '640',
+    image: 'IMAGE: CLASSIC SUNGLASSES',
+    fullName: 'UrbanShade Classic UV Protection Sunglasses',
+    detailImages: ['IMAGE: FRONT SUNGLASSES', 'IMAGE: BACK SUNGLASSES', 'IMAGE: SIDE SUNGLASSES', 'IMAGE: MODEL SUNGLASSES'],
+    colors: ['BLACK', 'BROWN'],
+    sizes: ['ONE SIZE'],
+    selectedColor: 'BLACK',
+    selectedSize: 'ONE SIZE',
+    description: 'Classic sunglasses with UV protection lenses and a lightweight frame for comfortable everyday wear.',
+  },
+  wallet: {
+    id: 111,
+    name: 'CraftLine Leather Wallet',
+    price: 'Rp189.000',
+    oldPrice: 'Rp240.000',
+    rating: '4.7',
+    sold: '380',
+    image: 'IMAGE: LEATHER WALLET',
+    fullName: 'CraftLine Genuine Leather Card Wallet',
+    detailImages: ['IMAGE: FRONT WALLET', 'IMAGE: BACK WALLET', 'IMAGE: SIDE WALLET', 'IMAGE: MODEL WALLET'],
+    colors: ['BLACK', 'BROWN'],
+    sizes: ['ONE SIZE'],
+    selectedColor: 'BLACK',
+    selectedSize: 'ONE SIZE',
+    description: 'A compact genuine leather wallet with organised card slots and a durable everyday design.',
+  },
   all: {
     id: 109,
     name: 'BeliBeli Special Collection',
@@ -176,6 +210,8 @@ const categories = [
   { key: 'shoes', name: 'Shoes' },
   { key: 'watches', name: 'Watches' },
   { key: 'cap', name: 'Cap' },
+  { key: 'sunglasses', name: 'Sunglasses' },
+  { key: 'wallet', name: 'Wallet' },
   { key: 'all', name: 'All Category' },
 ]
 

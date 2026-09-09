@@ -1,10 +1,21 @@
 import { useState, useRef, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { categoryList } from '../data'
+import { DownOutlined } from '@ant-design/icons'
 
 function CategoryDropdown() {
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
+
+  const toggleDropdown = (event) => {
+    event.preventDefault()
+    event.stopPropagation()
+    setOpen((currentOpen) => !currentOpen)
+  }
+
+  const closeWithoutNavigation = (event) => {
+    event.preventDefault()
+    setOpen(false)
+  }
 
   useEffect(() => {
     function handleClick(e) {
@@ -21,23 +32,23 @@ function CategoryDropdown() {
       <button
         type="button"
         className="category-button"
-        onClick={() => setOpen((o) => !o)}
+        onClick={toggleDropdown}
         aria-haspopup="menu"
         aria-expanded={open}
       >
-        All Category <span className="category-arrow">&#9660;</span>
+        All Category <DownOutlined className="category-arrow" />
       </button>
       {open && (
         <div className="category-menu" role="menu">
-          {categoryList.map((category) => (
-            <Link
+          {categoryList.filter(({ key }) => key !== 'all').map((category) => (
+            <a
+              href="#"
               key={category.key}
-              to={`/product/${category.product.id}`}
               className="category-menu-item"
-              onClick={() => setOpen(false)}
+              onClick={closeWithoutNavigation}
             >
               {category.name}
-            </Link>
+            </a>
           ))}
         </div>
       )}

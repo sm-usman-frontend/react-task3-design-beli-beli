@@ -1,4 +1,5 @@
 import ImagePlaceholder from './ImagePlaceholder'
+import { CrownFilled, ShopOutlined } from '@ant-design/icons'
 
 function StoreSection() {
   const stores = [
@@ -48,7 +49,10 @@ function StoreSection() {
       <h2>Best Selling Store</h2>
       <div className="store-layout">
         <div className="mall-tile">
-          <ImagePlaceholder label="IMAGE: SHOPPING BAGS" />
+          <ImagePlaceholder
+            label="IMAGE: SHOPPING BAGS"
+            src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=700&q=85"
+          />
           <div className="mall-copy">
             <strong>BeliBeli Mall</strong>
             <span>Shop, Explore, Delight and<br />
@@ -59,7 +63,10 @@ function StoreSection() {
           {stores.map((store) => (
             <div className="store-item" key={store.name}>
               <div className="store-name">
-                <span className="store-mark">{store.mark}</span>
+                <span className="store-mark" aria-hidden="true">
+                  <ShopOutlined />
+                  <CrownFilled className="store-badge" />
+                </span>
                 <div>
                   <b>{store.name}</b>
                   <small>&#8220;{store.tagline}&#8221;</small>

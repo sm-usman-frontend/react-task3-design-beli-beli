@@ -1,28 +1,13 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import FavoriteButton from './FavoriteButton'
 import ImagePlaceholder from './ImagePlaceholder'
 
 function ProductCard({ product, variant = '' }) {
-  const [liked, setLiked] = useState(product.liked || false)
-
-  const toggleLike = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setLiked((l) => !l)
-  }
-
   return (
     <Link to={`/product/${product.id}`} className={`product-card${variant ? ` ${variant}-product-card` : ''}`}>
       <div className="product-image">
         <ImagePlaceholder label={product.image} />
-        <button
-          type="button"
-          className={`favorite ${liked ? 'liked' : ''}`}
-          aria-label="Add to wishlist"
-          onClick={toggleLike}
-        >
-          {liked ? '\u2665' : '\u2661'}
-        </button>
+        <FavoriteButton initialLiked={product.liked || false} />
       </div>
       <div className="product-info">
         <h3>{product.name}</h3>
