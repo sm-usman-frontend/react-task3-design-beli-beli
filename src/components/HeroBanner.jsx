@@ -26,8 +26,8 @@ function HeroBanner() {
     >
       <div className="hero-content">
         <small>{slide.eyebrow}</small>
-        <h1>{slide.title}</h1>
-        <p>{slide.caption}</p>
+        <h1 className="heading-text responsive-heading">{slide.title}</h1>
+        <p className="body-text responsive-text">{slide.caption}</p>
         <div className="hero-dots">
           {heroSlides.map((_, idx) => (
             <button

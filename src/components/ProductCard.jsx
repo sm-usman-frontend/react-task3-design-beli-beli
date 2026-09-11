@@ -9,13 +9,13 @@ function ProductCard({ product, variant = '' }) {
         <ImagePlaceholder label={product.image} />
         <FavoriteButton initialLiked={product.liked || false} />
       </div>
-      <div className="product-info">
-        <h3>{product.name}</h3>
-        <div className="rating">
+      <div className="product-info card-info">
+        <h3 className="heading-text responsive-heading card-heading">{product.name}</h3>
+        <div className="body-text responsive-text rating card-rating">
           &#9733; {product.rating} <span>&middot; {product.sold} Sold</span>
         </div>
-        <strong>{product.price}</strong>
-        {product.oldPrice && <del>{product.oldPrice}</del>}
+        <strong className="body-text responsive-text card-price">{product.price}</strong>
+        {product.oldPrice && <del className="card-old-price">{product.oldPrice}</del>}
       </div>
       {variant === 'flash' && (
         <div className="flash-card-progress">

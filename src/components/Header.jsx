@@ -11,7 +11,7 @@ function Header() {
   return (
     <header className="site-header">
       <div className="utility-bar">
-        <span>&#9633; Download BeliBeli App</span>
+        <span className="responsive-text">&#9633; Download BeliBeli App</span>
         <nav>
           <a href="#mitra">Mitra BeliBeli</a>
           <a href="#about">About BeliBeli</a>

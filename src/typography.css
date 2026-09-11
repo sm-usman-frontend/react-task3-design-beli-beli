@@ -1,0 +1,52 @@
+:root {
+  --heading-size: 14px;
+  --body-size: 12px;
+  --label-size: 10px;
+  --section-gap: 20px;
+}
+
+.heading-text,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--heading-size);
+}
+
+.body-text,
+p,
+li,
+input,
+textarea,
+select,
+button {
+  font-size: var(--body-size);
+}
+
+.label-text,
+small,
+caption {
+  font-size: var(--label-size);
+}
+
+.responsive-heading { font-size: var(--heading-size); }
+.responsive-text { font-size: var(--body-size); }
+.responsive-label { font-size: var(--label-size); }
+
+@media (min-width: 768px) {
+  :root { --heading-size: 16px; --body-size: 13px; --label-size: 11px; --section-gap: 24px; }
+}
+
+@media (min-width: 1024px) {
+  :root { --heading-size: 18px; --body-size: 14px; --label-size: 12px; --section-gap: 28px; }
+}
+
+@media (min-width: 1280px) {
+  :root { --heading-size: 20px; --body-size: 15px; --label-size: 12px; --section-gap: 32px; }
+}
+
+@media (min-width: 1600px) {
+  :root { --heading-size: 22px; --body-size: 16px; --label-size: 13px; --section-gap: 38px; }
+}

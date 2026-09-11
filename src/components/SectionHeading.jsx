@@ -8,7 +8,7 @@ function SectionHeading({ title, action = 'See more' }) {
 
   return (
     <div className="section-heading">
-      <h2>{title}</h2>
+      <h2 className="heading-text responsive-heading">{title}</h2>
       {Array.isArray(action) ? (
         <div className="heading-categories">
           {action.map((category, index) => (
