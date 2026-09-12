@@ -1,0 +1,46 @@
+@import './small.css';
+@import './medium.css';
+@import './large.css';
+@import './xl.css';
+@import './xxl.css';
+@import './xxxl.css';
+
+:root {
+  --font-size-small: clamp(0.6875rem, 0.66rem + 0.12vw, 0.8125rem);
+  --font-size-medium: clamp(0.75rem, 0.7rem + 0.18vw, 0.9375rem);
+  --font-size-large: clamp(0.875rem, 0.8rem + 0.24vw, 1.125rem);
+  --font-size-xl: clamp(1rem, 0.88rem + 0.4vw, 1.375rem);
+  --font-size-xxl: clamp(1.25rem, 1rem + 0.8vw, 2rem);
+  --font-size-xxxl: clamp(1.75rem, 1.2rem + 1.6vw, 3rem);
+
+  --heading-size: var(--font-size-xl);
+  --body-size: var(--font-size-medium);
+  --label-size: var(--font-size-small);
+  --section-gap: clamp(1.25rem, 1rem + 1vw, 2rem);
+}
+
+h1 { font-size: var(--font-size-xxxl); }
+h2 { font-size: var(--font-size-xxl); }
+h3 { font-size: var(--font-size-xl); }
+h4 { font-size: var(--font-size-large); }
+h5, h6 { font-size: var(--font-size-medium); }
+
+.heading-text,
+.responsive-heading { font-size: var(--heading-size); }
+
+.body-text,
+.responsive-text { font-size: var(--body-size); }
+
+.label-text,
+.responsive-label { font-size: var(--label-size); }
+
+p, li, input, textarea, select, button { font-size: var(--body-size); }
+small, caption { font-size: var(--label-size); }
+
+@media (min-width: 768px) {
+  :root {
+    --heading-size: var(--font-size-xl);
+    --body-size: var(--font-size-medium);
+    --label-size: var(--font-size-small);
+  }
+}
