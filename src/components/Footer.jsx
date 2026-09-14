@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
+import heroBg from '../assets/hero_bg.webp'
 
-function Footer() {
+function Footer({ showQuote = true }) {
   return (
     <footer>
       <div className="footer-content">
