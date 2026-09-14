@@ -25,9 +25,9 @@ function HeroBanner() {
       style={{ backgroundImage: `url(${slide.image})` }}
     >
       <div className="hero-content">
-        <small>{slide.eyebrow}</small>
-        <h1 className="heading-text responsive-heading">{slide.title}</h1>
-        <p className="body-text responsive-text">{slide.caption}</p>
+        <small className="hero-eyebrow">{slide.eyebrow}</small>
+        <h1 className="heading-text responsive-heading hero-title">{slide.title}</h1>
+        <p className="body-text responsive-text hero-caption">{slide.caption}</p>
         <div className="hero-dots">
           {heroSlides.map((_, idx) => (
             <button

@@ -6,6 +6,7 @@ import SectionHeading from './SectionHeading'
 import ProductCard from './ProductCard'
 import StoreSection from './StoreSection'
 import Footer from './Footer'
+import FooterQuote from './FooterQuote'
 import FlashSaleSection from './FlashSaleSection'
 import { categoryList, flashProducts, products } from '../data'
 
@@ -36,6 +37,7 @@ function HomePage() {
         </section>
         <StoreSection />
       </main>
+      <FooterQuote />
       <Footer />
     </>
   )
